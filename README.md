@@ -14,3 +14,20 @@ To allow connections to the host (if you want to use this container as a jump-ho
     --add-host host.docker.internal:host-gateway
 
 You can now access the host via the literal address `host.docker.internal`.
+
+Here is a full docker-compose example:
+
+    version: "3"
+    services:
+        openvpn:
+            image: registry.atlantishq.de/atlantis/openvpn-atlantis:latest
+            restart: always
+            extra_hosts:
+                - host.docker.internal:host-gateway
+            cap_add:
+                - NET_ADMIN
+            devices:
+                - /dev/net/tun
+            volumes:
+                - /data/openvpn.config:/app/config.ovpn
+                - /data/authorized_keys:/root/.ssh/authorized_keys_tmp
