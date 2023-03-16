@@ -1,12 +1,18 @@
 FROM python:3.9-slim-buster
 
 RUN apt update
-RUN apt install openvpn -y
+RUN apt install openvpn ssh -y
 RUN apt autoremove -y
 RUN apt clean
 
-RUN mkdir /app
-WORKDIR /app
+COPY sshd_config /etc/ssh/sshd_config
 
-ENTRYPOINT ["openvpn"]
-CMD ["-c", "config.ovpn"]
+RUN mkdir /app
+RUN mkdir /run/sshd
+RUN mkdir /root/.ssh/
+
+WORKDIR /app
+COPY run.sh /app/
+
+ENTRYPOINT ["./run.sh"]
+CMD ["config.ovpn"]

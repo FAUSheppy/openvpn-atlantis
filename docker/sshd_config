@@ -1,0 +1,4 @@
+PermitRootLogin without-password
+ChallengeResponseAuthentication no
+UsePAM yes
+PrintMotd no
