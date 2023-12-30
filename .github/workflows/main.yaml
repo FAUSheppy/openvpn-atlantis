@@ -46,4 +46,4 @@ jobs:
           context: ./docker/
           platforms: linux/amd64
           push: true
-          tags: "${{ secrets.REGISTRY }}/atlantis/openvpn-atlantis:latest"
+          tags: "${{ secrets.REGISTRY }}/atlantishq/openvpn-atlantis:latest"
