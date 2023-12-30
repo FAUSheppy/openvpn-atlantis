@@ -1,15 +1,13 @@
-FROM python:3.9-slim-bookworm
+FROM alpine
 
-RUN apt update
-RUN apt install openvpn ssh -y
-RUN apt autoremove -y
-RUN apt clean
+RUN apk add --no-cache openvpn openssh openrc
+RUN rc-update add sshd
 
 COPY sshd_config /etc/ssh/sshd_config
 
 RUN mkdir /app
-RUN mkdir -p /run/sshd
-RUN mkdir -p /root/.ssh/
+RUN mkdir /run/sshd
+RUN mkdir /root/.ssh/
 
 WORKDIR /app
 COPY run.sh /app/
