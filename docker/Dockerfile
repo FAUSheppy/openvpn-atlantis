@@ -8,8 +8,8 @@ RUN apt clean
 COPY sshd_config /etc/ssh/sshd_config
 
 RUN mkdir /app
-RUN mkdir /run/sshd
-RUN mkdir /root/.ssh/
+RUN mkdir -p /run/sshd
+RUN mkdir -p /root/.ssh/
 
 WORKDIR /app
 COPY run.sh /app/
