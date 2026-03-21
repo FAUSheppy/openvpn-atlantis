@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # workaround for openssh file permission check
 cp /root/.ssh/authorized_keys_tmp /root/.ssh/authorized_keys
