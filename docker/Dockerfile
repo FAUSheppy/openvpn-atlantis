@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 
 RUN apk add --no-cache openvpn openssh openrc
 RUN rc-update add sshd
