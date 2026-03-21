@@ -12,5 +12,5 @@ RUN mkdir /root/.ssh/
 WORKDIR /app
 COPY run.sh /app/
 
-ENTRYPOINT ["./run.sh"]
-CMD ["config.ovpn"]
+ENTRYPOINT ["/app/run.sh"]
+CMD ["/app/config.ovpn"]
