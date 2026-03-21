@@ -31,3 +31,4 @@ Here is a full docker-compose example:
             volumes:
                 - /data/openvpn.config:/app/config.ovpn
                 - /data/authorized_keys:/root/.ssh/authorized_keys_tmp
+
